@@ -1,1 +1,2 @@
+target/Practice-1.0-SNAPSHOT.jar filter=lfs diff=lfs merge=lfs -text
 .ast-graph/graph.db filter=lfs diff=lfs merge=lfs -text
