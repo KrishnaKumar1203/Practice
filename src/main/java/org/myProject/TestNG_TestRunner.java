@@ -21,6 +21,7 @@ import org.testng.annotations.Test;
                 "json:target/cucumber-reports/CucumberTestReport.json",
                 "rerun:target/cucumber-reports/rerun.txt"},
         tags = "@google",
+        dryRun = false,
         monochrome = true
 )
 public class TestNG_TestRunner extends AbstractTestNGCucumberTests {
