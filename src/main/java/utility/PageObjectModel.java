@@ -1,16 +1,13 @@
 package utility;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
 public class PageObjectModel {
 
     public static String FeelingLucky = "//div[3]/center/input[contains(@value, 'Feeling Lucky')]";
     public static String SearchBox = "//textarea[@title='Search']";
     public static String Nifty50 = "//*[@id='knowledge-finance-wholepage__entity-summary']/div[3]/g-card-section/div/g-card-section/div[2]/div[1]/span[1]/span/span";
-
+    public static String Translation ="//textarea[@id='textarea1']";
+    public static String TranslateLanguage= "//*[@id='translation-form']/div[1]/div[2]/select";
+    public static String Textcopied = "//*[@id='translation-form']/div[2]/div[2]/div[1]/button[2]/i";
    /*   WebDriver driver;
 
     // Constructor to initialize the elements

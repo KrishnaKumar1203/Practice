@@ -4,8 +4,10 @@ utility\AnyFileReader.class
 utility\CommonFunctions.class
 utility\AllFileWriter.class
 com\example\openai\OpenAIAPIWebsite.class
+utility\xmltoExcelreprtCreation.class
 utility\Selenium$2.class
 com\example\ConfigReader.class
+utility\AllFileUpdater.class
 utility\PageObjectModel.class
 utility\Selenium.class
 utility\Selenium$1.class

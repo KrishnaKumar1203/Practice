@@ -2,6 +2,7 @@ package utility;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Properties;
 
@@ -64,6 +65,16 @@ public class Selenium {
                     put("credentials_enable_service", false);
                     put("profile.password_manager_enabled", false);
                 }});
+            // Add unique user data directory
+            // try {
+            //     String userDataDir = Files.createTempDirectory("selenium-user-data").toString();
+            //     chromeOptions.addArguments("--user-data-dir=" + userDataDir);
+            // } catch (IOException e) {
+            //     e.printStackTrace();
+            // }
+
+            // Run in headless mode
+            chromeOptions.addArguments("--headless");
 
                 // WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver(chromeOptions);

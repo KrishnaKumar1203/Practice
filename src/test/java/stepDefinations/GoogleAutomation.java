@@ -21,22 +21,25 @@ public class GoogleAutomation {
        
         // PageObjectModel page = new PageObjectModel(driver);
        
-        WebElement FeelingLuckey;
-
-    
-        FeelingLuckey = CommonFunctions.FluentWait(driver,20,PageObjectModel.FeelingLucky);
-        // FeelingLuckey.click();
        
-        System.out.println("Text ="+ FeelingLuckey.getAttribute("value"));
-         WebElement searchbox;
 
-         searchbox = CommonFunctions.FluentWait(driver,20,PageObjectModel.SearchBox);
+    try {
+            // Locate and interact with the "I'm Feeling Lucky" button
+       WebElement  FeelingLucky = CommonFunctions.FluentWait(driver,20,PageObjectModel.FeelingLucky);
+        // FeelingLucky.click();
+       
+        System.out.println("Text ="+ FeelingLucky.getAttribute("value"));
+        // FeelingLucky.click(); // Uncomment if needed
+
+	// Locate the search box and perform a search
+        WebElement searchbox = CommonFunctions.FluentWait(driver,20,PageObjectModel.SearchBox);
          
          searchbox.sendKeys("NIFTY 50 today Value");
             searchbox.submit();
-            WebElement Nifty50;
+           
 
-            Nifty50= CommonFunctions.FluentWait(driver,20,PageObjectModel.Nifty50);
+	// Locate the Nifty50 value and validate it
+          WebElement  Nifty50= CommonFunctions.FluentWait(driver,20,PageObjectModel.Nifty50);
             String nifty50Text = Nifty50.getText().replace(",", ""); // Remove commas if any
             double Amount = Double.parseDouble(nifty50Text);
     
@@ -49,6 +52,12 @@ public class GoogleAutomation {
             {
                 System.out.println("Test Failed "+Amount);
             }
+} catch (Exception e) {
+            System.err.println("Error during automation: " + e.getMessage());
+        } finally {
+            // Ensure the browser is closed
+            driver.quit();
+        }
     }
     
     //     public static void main(String[] args) {
@@ -58,9 +67,13 @@ public class GoogleAutomation {
   
     @Given("I open the Google homepage and read text and check for nifty50")  
     public void i_open_the_google_homepage_and_read_text_and_check_for_nifty50() {
-        // Write code here that turns the phrase above into concrete actions  
+        // Create an instance of GoogleAutomation to run the constructor 
         new GoogleAutomation();
-        // throw new io.cucumber.java.PendingException();
+       
+    }
+    public static void main(String[] args) {
+        // Create an instance of GoogleAutomation to run the constructor
+        new GoogleAutomation();
     }
    
 }
