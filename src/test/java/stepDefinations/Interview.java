@@ -1,52 +1,34 @@
 package stepDefinations;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Interview {
 
-    public Interview(){
-        int a[]={6,4,3,2,9,8};
-        int b = a.length;
-        int c=0;
-        //int d[] = new int[b];
-        for (int i=0; i<b; i++){
-            System.out.println("i located at = "+i);  
-                c=a[i];
-                a[i]=a[i+1];
-                a[i+1]=c;
-                i++;
-              
-            }
-        
-        for (int i = 0; i<a.length; i++){
-            System.out.println(a[i]);
-        }
-    } 
-        	
-public void Interview1()    {
-int a[]={1,1,0,1,0};
-int b = a.length;
-int c = 0;
-int d[] = new int[b];
-for ( int i = 0; i<a.length; i++){
-    if (a[i]==0){
-d[c]=0;// Place 0 at the next available position from the start
-        
-        c++;
-    
-    }else {
-    d[b-1]=1; // Place 1 at the next available position from the end
-        b--; // Decrement the end pointer
-    }
-    
-}
-for (int i = 0; i<d.length; i++){
-    System.out.println(d[i]);
-}
-}
-public static void main(String[] args) {
-    new Interview();
-    new Interview().Interview1();
-}
+   public void Interview1(){
 
+   }
+
+
+
+
+    public static String noofaccurance(String s) 
+    {
+        HashMap<Character, Integer> charCountMap = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
+        }
+
+        StringBuilder r = new StringBuilder();
+        for (HashMap.Entry<Character, Integer> entry : charCountMap.entrySet()) {
+            r.append(entry.getKey()).append("=").append(entry.getValue()).append(" ");
+        }
+
+        return r.toString().trim();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(noofaccurance("KrishnaKumar")); // Output:  k= 2 r=2 no of occurence of each character
+    }
 }
