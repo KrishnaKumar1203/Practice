@@ -1,6 +1,4 @@
-package stepDefinations;
-
-import java.util.Arrays;
+package stepDefinations.Java;
 import java.util.HashMap;
 
 public class Interview {
@@ -30,5 +28,26 @@ public class Interview {
 
     public static void main(String[] args) {
         System.out.println(noofaccurance("KrishnaKumar")); // Output:  k= 2 r=2 no of occurence of each character
+    r("KRISHNAKUMAR");
+    }
+
+    public static String reverseString(String s) {
+        StringBuilder reversed = new StringBuilder(s);
+        return reversed.reverse().toString();
+    }
+  public static void r(String s) {
+         int count=1;
+         char c= 0;
+    for (int i= 0; i < s.length(); i++) {
+        for(int j = 0; j < s.length(); j++) {
+              c= s.charAt(i);
+            if (c == s.charAt(j)) {
+                count++;
+        }
+    }
+    System.out.println(c + " occurs " + count + " times");
+    count  = 0;
+        }
     }
 }
+    

@@ -1,4 +1,4 @@
-package stepDefinations;
+package stepDefinations.Java;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
