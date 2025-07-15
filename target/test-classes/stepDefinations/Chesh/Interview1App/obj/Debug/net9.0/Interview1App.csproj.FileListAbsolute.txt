@@ -1,0 +1,15 @@
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\bin\Debug\net9.0\Interview1App.exe
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\bin\Debug\net9.0\Interview1App.deps.json
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\bin\Debug\net9.0\Interview1App.runtimeconfig.json
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\bin\Debug\net9.0\Interview1App.dll
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\bin\Debug\net9.0\Interview1App.pdb
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\obj\Debug\net9.0\Interview1App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\obj\Debug\net9.0\Interview1App.AssemblyInfoInputs.cache
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\obj\Debug\net9.0\Interview1App.AssemblyInfo.cs
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\obj\Debug\net9.0\Interview1App.csproj.CoreCompileInputs.cache
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\obj\Debug\net9.0\Interview1App.sourcelink.json
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\obj\Debug\net9.0\Interview1App.dll
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\obj\Debug\net9.0\refint\Interview1App.dll
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\obj\Debug\net9.0\Interview1App.pdb
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\obj\Debug\net9.0\Interview1App.genruntimeconfig.cache
+C:\Users\kksuc\IdeaProjects\Practice\src\test\java\stepDefinations\Chesh\Interview1App\obj\Debug\net9.0\ref\Interview1App.dll

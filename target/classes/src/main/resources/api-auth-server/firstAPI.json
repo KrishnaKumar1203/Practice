@@ -1,0 +1,44 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "krishna",
+      "location": "gurgaon",
+      "phone": 9149108020,
+      "course": [
+        "java",
+        "selenium"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "krishna2",
+      "location": "gurgaon2",
+      "phone": 9410072070,
+      "course": [
+        "java",
+        "selenium"
+      ]
+    },
+    {
+      "name": "Arjun",
+      "location": "meerut",
+      "phone": 9410072070,
+      "course": [
+        "python",
+        "selenium"
+      ],
+      "id": "508c"
+    },
+    {
+      "id": "4b5a"
+    },
+    {
+      "id": "94b2",
+      "name": "Anjali2",
+      "course": "Java",
+      "location": "Gurgaon2",
+      "phone": "9410072070"
+    }
+  ]
+}

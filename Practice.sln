@@ -1,0 +1,59 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "target", "target", "{185866E3-F889-713C-3B9B-1F8348842EAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test-classes", "test-classes", "{2740E607-4AFE-A603-D483-323F2674586B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stepDefinations", "stepDefinations", "{DAA38CEB-D52C-9AA9-792D-740E96D5F36C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chesh", "Chesh", "{68C3DF25-1717-099D-757C-EC914F6443A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview1App", "target\test-classes\stepDefinations\Chesh\Interview1App\Interview1App.csproj", "{BA6A1525-8AC1-60E1-8BD2-BAAD3C377E85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3E72BF5C-0B5E-D5BD-DCAE-6B991004B4A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "java", "java", "{7D61A6C7-2BE8-7AF4-174F-60929DCB27C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stepDefinations", "stepDefinations", "{83EDC88F-4EFD-A4A9-1F7D-FA6700B7554E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chesh", "Chesh", "{4B42CCF4-8BBC-502E-0283-84F9C32A596F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview1App", "src\test\java\stepDefinations\Chesh\Interview1App\Interview1App.csproj", "{B781D909-A714-5AF9-E15B-8E4F87614AC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA6A1525-8AC1-60E1-8BD2-BAAD3C377E85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA6A1525-8AC1-60E1-8BD2-BAAD3C377E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA6A1525-8AC1-60E1-8BD2-BAAD3C377E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA6A1525-8AC1-60E1-8BD2-BAAD3C377E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B781D909-A714-5AF9-E15B-8E4F87614AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B781D909-A714-5AF9-E15B-8E4F87614AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B781D909-A714-5AF9-E15B-8E4F87614AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B781D909-A714-5AF9-E15B-8E4F87614AC0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2740E607-4AFE-A603-D483-323F2674586B} = {185866E3-F889-713C-3B9B-1F8348842EAC}
+		{DAA38CEB-D52C-9AA9-792D-740E96D5F36C} = {2740E607-4AFE-A603-D483-323F2674586B}
+		{68C3DF25-1717-099D-757C-EC914F6443A5} = {DAA38CEB-D52C-9AA9-792D-740E96D5F36C}
+		{BA6A1525-8AC1-60E1-8BD2-BAAD3C377E85} = {68C3DF25-1717-099D-757C-EC914F6443A5}
+		{3E72BF5C-0B5E-D5BD-DCAE-6B991004B4A5} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{7D61A6C7-2BE8-7AF4-174F-60929DCB27C1} = {3E72BF5C-0B5E-D5BD-DCAE-6B991004B4A5}
+		{83EDC88F-4EFD-A4A9-1F7D-FA6700B7554E} = {7D61A6C7-2BE8-7AF4-174F-60929DCB27C1}
+		{4B42CCF4-8BBC-502E-0283-84F9C32A596F} = {83EDC88F-4EFD-A4A9-1F7D-FA6700B7554E}
+		{B781D909-A714-5AF9-E15B-8E4F87614AC0} = {4B42CCF4-8BBC-502E-0283-84F9C32A596F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A362423-3D01-45DA-8B73-3A542D93935C}
+	EndGlobalSection
+EndGlobal

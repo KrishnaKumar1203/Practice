@@ -21,7 +21,6 @@
         <extent.version>5.0.8</extent.version>
         <json.version>20210307</json.version>
         <jackson.version>2.13.0</jackson.version>
-        <restassured.version>4.4.0</restassured.version>
         <spring.version>5.3.9</spring.version>
         <springboot.version>2.5.4</springboot.version>
         <lombok.version>1.18.22</lombok.version>
@@ -111,10 +110,12 @@
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>5.4.0</version>
+            <version>5.5.5</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>commons-logging</groupId>
@@ -141,11 +142,12 @@
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
         </dependency>
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>3.0.23</version>
-        </dependency>
+<!-- Add inside <dependencies> -->
+<dependency>
+    <groupId>com.github.javaparser</groupId>
+    <artifactId>javaparser-core</artifactId>
+    <version>3.25.8</version>
+</dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
@@ -180,25 +182,7 @@
             <artifactId>poi-excelant</artifactId>
             <version>${poi.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.14</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore</artifactId>
-            <version>5.5.3</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/httpcore5-5.3.3.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpmime</artifactId>
-            <version>4.5.14</version>
-            <scope>system</scope>
-        <systemPath>${project.basedir}/lib/httpmime-4.5.14.jar</systemPath>
-        </dependency>
+
 <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-ooxml</artifactId>
@@ -210,12 +194,7 @@
         <artifactId>commons-io</artifactId>
         <version>2.15.0</version>
     </dependency>
-    <!-- Apache PDFBox for PDF files -->
-    <dependency>
-        <groupId>org.apache.pdfbox</groupId>
-        <artifactId>pdfbox</artifactId>
-        <version>3.0.2</version>
-    </dependency>
+
      <!-- Tess4J for OCR -->
     <dependency>
         <groupId>net.sourceforge.tess4j</groupId>
@@ -332,12 +311,6 @@
             <groupId>net.sf.ucanaccess</groupId>
             <artifactId>ucanaccess</artifactId>
             <version>5.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>3.0.23</version>
-            <type>pom</type>
         </dependency>
 
     </dependencies>
