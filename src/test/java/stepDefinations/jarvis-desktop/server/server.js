@@ -4,6 +4,7 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const path = require('path');
+const franc = require('franc'); // Language detector (fixed for v5.0.0)
 
 const app = express();
 app.use(express.json());
@@ -24,9 +25,7 @@ app.post('/chat', async (req, res) => {
         {
           role: "system",
           content: `You are Jarvis, a helpful and intelligent AI assistant created by Krishna.
-You must behave like a professional assistant named Jarvis.
-Never mention DeepSeek or any other AI model name. Never describe your thought process.
-Simply respond to the user's query clearly and concisely. Avoid repeating the same sentence.`
+Never mention your model name. Never explain your thoughts. Always answer clearly and cleanly.`
         },
         {
           role: "user",
@@ -43,7 +42,7 @@ Simply respond to the user's query clearly and concisely. Avoid repeating the sa
 
     let reply = response.data.choices[0].message.content;
 
-    // Output Filtering & Deduplication
+    // Replace branding and filler
     reply = reply
       .replace(/DeepSeek-R1(-Lite)?(-Preview)?/gi, 'Jarvis')
       .replace(/DeepSeek/gi, 'Jarvis')
@@ -51,7 +50,13 @@ Simply respond to the user's query clearly and concisely. Avoid repeating the sa
       .replace(/(?:Hmm[.,!]?|Let me think[.,!]?|I'm trying to think|Maybe I should|Wait, but|Let me consider)[\s,:-]*/gi, '')
       .trim();
 
-    // Remove repeated lines (simple filter)
+    // Wrap Java code block if it contains Java but not already wrapped
+    const hasJavaCode = /public\s+class\s+\w+/i.test(reply) && !reply.includes('```java');
+    if (hasJavaCode) {
+      reply = `\`\`\`java\n${reply}\n\`\`\``;
+    }
+
+    // Remove repeated lines
     const lines = reply.split('\n');
     const seen = new Set();
     const uniqueLines = lines.filter(line => {
@@ -63,6 +68,10 @@ Simply respond to the user's query clearly and concisely. Avoid repeating the sa
 
     reply = uniqueLines.join('\n');
 
+    // Optional: log language
+    const langCode = franc(reply);
+    console.log(`🔍 Detected language: ${langCode}`);
+
     res.json({ reply });
 
   } catch (err) {
@@ -71,7 +80,7 @@ Simply respond to the user's query clearly and concisely. Avoid repeating the sa
   }
 });
 
-// Health check route for browser/mobile
+// Health check
 app.get('/', (req, res) => {
   res.send('✅ Jarvis backend is up and running!');
 });
