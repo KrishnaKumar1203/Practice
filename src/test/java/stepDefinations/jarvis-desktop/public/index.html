@@ -41,6 +41,8 @@
       border: 1px solid #30363d;
       border-radius: 8px;
       white-space: pre-wrap;
+      max-height: 500px;
+      overflow-y: auto;
     }
     pre {
       background: #1e1e1e;
@@ -52,86 +54,25 @@
       color: #dcdcdc;
       font-family: monospace;
     }
+    #status {
+      margin-left: 10px;
+      color: #58a6ff;
+    }
   </style>
 </head>
 <body>
   <h1>Hello, I'm Jarvis</h1>
 
-  <!-- Text Input -->
+  <!-- Text Input and Controls -->
   <input type="text" id="input" placeholder="Ask something..." autofocus />
   <button id="sendBtn">Send</button>
   <button id="mic">🎤 Speak</button>
-  <p id="status"></p>
+  <span id="status"></span>
 
   <!-- Response Output -->
   <div id="response">Jarvis will respond here...</div>
 
   <!-- JS Logic -->
-  <script>
-    const inputBox = document.getElementById("input");
-    const responseBox = document.getElementById("response");
-
-    inputBox.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") handleSend();
-    });
-
-    document.getElementById("sendBtn").addEventListener("click", handleSend);
-
-    async function handleSend() {
-      const input = inputBox.value.trim();
-      if (!input) return;
-
-      responseBox.innerHTML = "<em>Thinking...</em>";
-
-      try {
-        const res = await fetch("http://192.168.1.9:5000/chat", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ prompt: input })  // ✅ Always use 'prompt'
-        });
-
-        if (!res.ok) {
-          const errorText = await res.text();
-          throw new Error(`Server Error (${res.status}): ${errorText}`);
-        }
-
-        const data = await res.json();
-        const reply = data.reply || "⚠️ No response from Jarvis.";
-
-        responseBox.innerHTML = marked.parse(reply);
-
-        document.querySelectorAll('pre code').forEach((block) => {
-          hljs.highlightElement(block);
-        });
-
-        inputBox.value = "";
-      } catch (error) {
-        console.error("Fetch error:", error);
-        responseBox.innerHTML = `<span style="color:red;">❌ Error: ${error.message}</span>`;
-      }
-    }
-
-    document.getElementById("mic").addEventListener("click", () => {
-      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-      recognition.lang = "en-US";
-      recognition.start();
-
-      document.getElementById("status").textContent = "🎙️ Listening...";
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        inputBox.value = transcript;
-        handleSend();
-      };
-
-      recognition.onerror = () => {
-        document.getElementById("status").textContent = "⚠️ Voice recognition failed.";
-      };
-
-      recognition.onend = () => {
-        document.getElementById("status").textContent = "";
-      };
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

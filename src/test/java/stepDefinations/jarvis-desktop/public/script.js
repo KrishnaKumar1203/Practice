@@ -1,18 +1,23 @@
 const responseDiv = document.getElementById('response');
 const inputBox = document.getElementById('input');
 const micButton = document.getElementById('mic');
-const sendButton = document.getElementById('sendBtn'); // Make sure your HTML has button with id="sendBtn"
+const sendButton = document.getElementById('sendBtn');
+const statusSpan = document.getElementById('status');
 
-// Auto-scroll to latest message
+let lastInputWasVoice = false; // Track if last input was voice
+
+// Scroll helper
 function scrollToBottom() {
   responseDiv.scrollTop = responseDiv.scrollHeight;
 }
 
-// Text-to-Speech (Jarvis speaks)
+// Text-to-speech (only for voice input)
 function speak(text) {
+  if (!window.speechSynthesis) return;
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = 'en-US';
-  speechSynthesis.speak(utterance);
+  window.speechSynthesis.cancel(); // Cancel any ongoing speech
+  window.speechSynthesis.speak(utterance);
 }
 
 // Send user input to backend
@@ -29,23 +34,30 @@ async function send(message) {
   inputBox.value = '';
 
   try {
-    const backendURL = "http://192.168.1.9:5000/chat"; // Update if hosted elsewhere
+    const backendURL = "http://localhost:5000/chat"; // adjust your backend URL if needed
 
     const res = await fetch(backendURL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt: userMessage })
     });
 
     const data = await res.json();
     const reply = data.reply || "⚠️ No response received.";
 
-    // Replace typing indicator with Jarvis response
+    // Remove typing indicator
     document.getElementById('typing')?.remove();
-    responseDiv.innerHTML += `<div><strong>Jarvis:</strong> ${reply}</div>`;
-    speak(reply);
+
+    // Show reply with markdown
+    const html = marked.parse(reply);
+    responseDiv.innerHTML += `<div><strong>Jarvis:</strong> ${html}</div>`;
+    document.querySelectorAll('pre code').forEach(block => hljs.highlightElement(block));
+
+    // SPEAK reply only if input was voice
+    if (lastInputWasVoice) {
+      speak(reply);
+    }
+
   } catch (error) {
     console.error("Frontend error:", error);
     document.getElementById('typing')?.remove();
@@ -53,29 +65,31 @@ async function send(message) {
   }
 
   scrollToBottom();
+
+  // Reset voice input flag, so next input defaults to text unless mic clicked again
+  lastInputWasVoice = false;
 }
 
-// Handle Send button click
+// Send button (text input)
 function handleSend() {
+  lastInputWasVoice = false;
   send();
 }
 
-// Attach listener to Send button
 if (sendButton) {
   sendButton.addEventListener("click", handleSend);
 } else {
   console.warn("Send button not found with ID 'sendBtn'");
 }
 
-// Handle Enter key in input box
-inputBox.addEventListener("keydown", function (event) {
+inputBox.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     event.preventDefault();
     handleSend();
   }
 });
 
-// Voice Input using Web Speech API
+// Voice input via Web Speech API
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 if (SpeechRecognition) {
   const recognition = new SpeechRecognition();
@@ -85,18 +99,29 @@ if (SpeechRecognition) {
 
   micButton.addEventListener('click', () => {
     recognition.start();
+    statusSpan.textContent = "🎙️ Listening...";
   });
 
   recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript;
     inputBox.value = transcript;
+    statusSpan.textContent = "";
+    lastInputWasVoice = true;
     send(transcript);
   };
 
   recognition.onerror = (event) => {
-    alert("🎤 Microphone error: " + event.error);
+    statusSpan.textContent = "⚠️ Microphone error: " + event.error;
+  };
+
+  recognition.onend = () => {
+    // If ended without any errors, clear status (you can also choose to keep or update here)
+    if (statusSpan.textContent === "🎙️ Listening...") {
+      statusSpan.textContent = "";
+    }
   };
 } else {
   micButton.disabled = true;
   micButton.title = "Speech recognition not supported in this browser";
+  statusSpan.textContent = "Speech recognition not supported!";
 }

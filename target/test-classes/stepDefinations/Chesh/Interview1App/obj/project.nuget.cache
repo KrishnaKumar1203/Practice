@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qFS3KcgygR8=",
+  "dgSpecHash": "Q8FbqVFKwtc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kksuc\\IdeaProjects\\Practice\\target\\test-classes\\stepDefinations\\Chesh\\Interview1App\\Interview1App.csproj",
+  "projectFilePath": "C:\\Users\\kksuc\\IdeaProjects\\Practice\\src\\test\\java\\stepDefinations\\Chesh\\Interview1App\\Interview1App.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
