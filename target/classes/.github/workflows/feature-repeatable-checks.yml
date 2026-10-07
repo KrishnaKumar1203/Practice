@@ -1,0 +1,23 @@
+name: Feature - Repeatable checks
+
+on:
+  push:
+    paths:
+      - "pom.xml"
+      - "package.json"
+      - "tools/**"
+      - "src/test/**"
+  pull_request:
+    paths:
+      - "pom.xml"
+      - "package.json"
+      - "tools/**"
+      - "src/test/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    uses: ./.github/workflows/practice-feature-checks.yml

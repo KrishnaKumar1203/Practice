@@ -1,0 +1,21 @@
+name: Feature - Cucumber BDD tests
+
+on:
+  push:
+    paths:
+      - "src/test/resources/features/**"
+      - "src/test/java/stepDefinations/**"
+      - "src/main/java/**"
+  pull_request:
+    paths:
+      - "src/test/resources/features/**"
+      - "src/test/java/stepDefinations/**"
+      - "src/main/java/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    uses: ./.github/workflows/practice-feature-checks.yml

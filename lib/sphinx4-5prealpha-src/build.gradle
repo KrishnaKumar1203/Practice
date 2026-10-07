@@ -32,9 +32,10 @@ implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.8'
     compileJava.options.encoding = 'UTF-8'
     javadoc.options.encoding = 'UTF-8'
 
-    // Set Java compatibility to 17 or change if you want
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 
     // Define sources JAR task
     tasks.register('sourcesJar', Jar) {

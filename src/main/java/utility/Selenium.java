@@ -1,10 +1,6 @@
 package utility;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.util.HashMap;
-import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,24 +16,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Selenium {
 
-    // Kill Chrome browser process
-    public static void killChrome() {
-        try {
-            Runtime.getRuntime().exec("taskkill /IM chrome.exe /F");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // Kill Edge browser process
-    public static void killEdge() {
-        try {
-            Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static WebDriver getDriver() {
         String browser = ConfigReader.getProperty("browser");
         
@@ -45,7 +23,6 @@ public class Selenium {
 
         switch (browser.toLowerCase()) {
             case "chrome":
-                killChrome();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
                 chromeOptions.addArguments("start-maximized");
@@ -86,7 +63,6 @@ public class Selenium {
                 break;
 
             case "edge":
-                killEdge();
                 EdgeOptions edgeOptions = new EdgeOptions();
                 edgeOptions.addArguments("--disable-blink-features=AutomationControlled");
                 edgeOptions.addArguments("start-maximized");

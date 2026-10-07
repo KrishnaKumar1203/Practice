@@ -1,0 +1,19 @@
+name: Feature - Code and text analysis
+
+on:
+  push:
+    paths:
+      - "src/main/java/**"
+      - "src/main/resources/**"
+  pull_request:
+    paths:
+      - "src/main/java/**"
+      - "src/main/resources/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    uses: ./.github/workflows/practice-feature-checks.yml

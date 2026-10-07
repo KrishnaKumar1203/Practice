@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: practice-ai-development-toolkit
+  servlet:
+    multipart:
+      max-file-size: 32MB
+      max-request-size: 33MB
+server:
+  address: 127.0.0.1
+  port: 8080
+
+api:
+  # Supported protocols: claw, openai-compatible, anthropic.
+  protocol: claw
+  endpoint: http://127.0.0.1:5000/api/prompt
+  health-endpoint: http://127.0.0.1:5000/api/status
+  model: local-gemini
+  timeout-seconds: 180
+  # Keep API keys in environment variables, never in this file.
+
+documents:
+  max-bytes: 33554432
+  max-extracted-characters: 200000
+  ocr:
+    enabled: true
+    language: eng

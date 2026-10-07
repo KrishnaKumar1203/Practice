@@ -1,0 +1,19 @@
+name: Feature - JavaScript client
+
+on:
+  push:
+    paths:
+      - "tools/javascript/**"
+      - "package.json"
+  pull_request:
+    paths:
+      - "tools/javascript/**"
+      - "package.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    uses: ./.github/workflows/practice-feature-checks.yml

@@ -1,0 +1,21 @@
+name: Feature - Document extraction
+
+on:
+  push:
+    paths:
+      - "pom.xml"
+      - "src/main/java/**"
+      - "src/main/resources/**"
+  pull_request:
+    paths:
+      - "pom.xml"
+      - "src/main/java/**"
+      - "src/main/resources/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    uses: ./.github/workflows/practice-feature-checks.yml

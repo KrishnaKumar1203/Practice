@@ -1,0 +1,17 @@
+name: Feature - Python client
+
+on:
+  push:
+    paths:
+      - "tools/python/**"
+  pull_request:
+    paths:
+      - "tools/python/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    uses: ./.github/workflows/practice-feature-checks.yml
