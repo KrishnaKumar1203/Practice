@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: org.myProject.GoogleAutomationCucumberTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.422 s <<< FAILURE! -- in org.myProject.GoogleAutomationCucumberTest
-org.myProject.GoogleAutomationCucumberTest.Open Google homepage and check Nifty 50 -- Time elapsed: 1.126 s <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.839 s <<< FAILURE! -- in org.myProject.GoogleAutomationCucumberTest
+org.myProject.GoogleAutomationCucumberTest.Open Google homepage and check Nifty 50 -- Time elapsed: 0.664 s <<< ERROR!
 org.openqa.selenium.remote.NoSuchDriverException: 
 Unable to obtain: Capabilities {browserName: MicrosoftEdge, ms:edgeOptions: {args: [--remote-allow-origins=*, --disable-blink-features=Au..., start-maximized, --disable-infobars, --disable-extensions, --disable-gpu, --no-sandbox, --disable-dev-shm-usage, user-agent=Mozilla/5.0 (Win...], excludeSwitches: [enable-automation], extensions: [], prefs: {credentials_enable_service: false, profile.password_manager_enabled: false}, useAutomationExtension: false}}, error Command failed with code: 65, executed: [--browser, MicrosoftEdge, --output, json]
 error sending request for url (https://msedgedriver.azureedge.net/LATEST_RELEASE_154_WINDOWS): error trying to connect: dns error: No such host is known. (os error 11001)

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.myProject.ToolkitCucumberTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.181 s -- in org.myProject.ToolkitCucumberTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.972 s -- in org.myProject.ToolkitCucumberTest
