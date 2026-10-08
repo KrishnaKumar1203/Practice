@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kksuc\\IdeaProjects\\Practice\\target\\test-classes\\stepDefinations\\Chesh\\Interview1App\\Interview1App.csproj",
+      "projectUniqueName": "C:\\Users\\kksuc\\IdeaProjects\\Practice\\src\\test\\java\\stepDefinations\\Chesh\\Interview1App\\Interview1App.csproj",
       "projectName": "Interview1App",
-      "projectPath": "C:\\Users\\kksuc\\IdeaProjects\\Practice\\target\\test-classes\\stepDefinations\\Chesh\\Interview1App\\Interview1App.csproj",
+      "projectPath": "C:\\Users\\kksuc\\IdeaProjects\\Practice\\src\\test\\java\\stepDefinations\\Chesh\\Interview1App\\Interview1App.csproj",
       "packagesPath": "C:\\Users\\kksuc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kksuc\\IdeaProjects\\Practice\\target\\test-classes\\stepDefinations\\Chesh\\Interview1App\\obj\\",
+      "outputPath": "C:\\Users\\kksuc\\IdeaProjects\\Practice\\src\\test\\java\\stepDefinations\\Chesh\\Interview1App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kksuc\\AppData\\Roaming\\NuGet\\NuGet.Config"

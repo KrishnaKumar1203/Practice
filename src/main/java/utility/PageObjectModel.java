@@ -4,7 +4,6 @@ public class PageObjectModel {
 
     public static String FeelingLucky = "//div[3]/center/input[contains(@value, 'Feeling Lucky')]";
     public static String SearchBox = "//textarea[@title='Search']";
-    public static String SearchResults = "//*[@id='search']";
     public static String Nifty50 = "//*[@id='knowledge-finance-wholepage__entity-summary']/div[3]/g-card-section/div/g-card-section/div[2]/div[1]/span[1]/span/span";
     public static String Translation ="//textarea[@id='textarea1']";
     public static String TranslateLanguage= "//*[@id='translation-form']/div[1]/div[2]/select";
