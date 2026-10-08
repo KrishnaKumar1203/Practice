@@ -1,0 +1,91 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "GetStudentTest",
+            "request": "launch",
+            "mainClass": "stepDefinations.Java.GetStudentTest",
+            "projectName": "Practice"
+        },
+        {
+            "type": "java",
+            "name": "interview1",
+            "request": "launch",
+            "mainClass": "stepDefinations.Java.interview1",
+            "projectName": "Practice"
+        },
+        {
+            "type": "java",
+            "name": "Interview",
+            "request": "launch",
+            "mainClass": "stepDefinations.Java.Interview",
+            "projectName": "Practice"
+        },
+        {
+            "type": "java",
+            "name": "interview1",
+            "request": "launch",
+            "mainClass": "stepDefinations.interview1",
+            "projectName": "Practice"
+        },
+        {
+            "type": "java",
+            "name": "GoogleAutomation",
+            "request": "launch",
+            "mainClass": "stepDefinations.GoogleAutomation",
+            "projectName": "Practice"
+        },
+        {
+            "type": "java",
+            "name": "Interview",
+            "request": "launch",
+            "mainClass": "stepDefinations.Interview",
+            "projectName": "Practice"
+        },
+        {
+            "type": "java",
+            "name": "Practice",
+            "request": "launch",
+            "mainClass": "stepDefinations.Practice",
+            "projectName": "Practice"
+        },
+        {
+            "type": "java",
+            "name": "AnyFileReader",
+            "request": "launch",
+            "mainClass": "utility.AnyFileReader",
+            "projectName": "Practice"
+        },
+        {
+            "type": "java",
+            "name": "AllFileWriter",
+            "request": "launch",
+            "mainClass": "utility.AllFileWriter",
+            "projectName": "Practice"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Practice",
+            "request": "launch",
+            "mainClass": "Practice",
+            "projectName": "Practice"
+        },
+        {
+            "type": "java",
+            "name": "OpenAIAPIWebsite",
+            "request": "launch",
+            "mainClass": "com.example.openai.OpenAIAPIWebsite",
+            "projectName": "Practice"
+        }
+    ]
+}

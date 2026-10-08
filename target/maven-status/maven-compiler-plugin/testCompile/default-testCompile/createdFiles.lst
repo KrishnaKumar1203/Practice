@@ -1,5 +1,10 @@
+org\myProject\ToolkitCucumberTest.class
+com\example\toolkit\AiProviderClientTest.class
+org\myProject\GoogleAutomationCucumberTest.class
+stepDefinations\toolkit\ToolkitStepDefinitions.class
 stepDefinations\Java\Practice.class
 stepDefinations\Java\GetStudentTest.class
+com\example\toolkit\DocumentReaderServiceTest.class
 stepDefinations\Java\interview1.class
 stepDefinations\Java\Interview.class
 stepDefinations\Java\GoogleAutomation.class

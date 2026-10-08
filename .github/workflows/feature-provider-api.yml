@@ -1,0 +1,19 @@
+name: Feature - Provider API integration
+
+on:
+  push:
+    paths:
+      - "src/main/java/com/example/openai/**"
+      - "src/main/resources/application.yaml"
+  pull_request:
+    paths:
+      - "src/main/java/com/example/openai/**"
+      - "src/main/resources/application.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    uses: ./.github/workflows/practice-feature-checks.yml

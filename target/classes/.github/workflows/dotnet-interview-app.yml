@@ -1,0 +1,23 @@
+name: .NET Interview app check
+
+on:
+  push:
+    paths:
+      - "src/test/java/stepDefinations/Chesh/Interview1App/**"
+  pull_request:
+    paths:
+      - "src/test/java/stepDefinations/Chesh/Interview1App/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+      - run: dotnet build src/test/java/stepDefinations/Chesh/Interview1App/Interview1App.csproj

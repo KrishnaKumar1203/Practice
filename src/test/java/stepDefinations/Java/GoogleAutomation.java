@@ -1,79 +1,76 @@
 package stepDefinations.Java;
+
+import com.example.ConfigReader;
+import io.cucumber.java.After;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import com.example.ConfigReader;
-import io.cucumber.java.en.Given;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utility.CommonFunctions;
 import utility.PageObjectModel;
 import utility.Selenium;
 
+import java.time.Duration;
+import java.util.Locale;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class GoogleAutomation {
+    private static final int WAIT_SECONDS = 20;
 
-    WebDriver driver;
+    private WebDriver driver;
+    private String searchResultsText;
 
-    public GoogleAutomation() {
+    @Given("I open the Google homepage")
+    public void openGoogleHomepage() {
+        String url = ConfigReader.getProperty("url");
+        if (url == null || url.isBlank()) {
+            throw new IllegalStateException("The Google homepage URL is not configured.");
+        }
 
-        // Initialize the WebDriver
         driver = Selenium.getDriver();
-       String url = ConfigReader.getProperty("url");
-        // Navigate to Google
         driver.get(url);
-       
-        // PageObjectModel page = new PageObjectModel(driver);
-       
-       
+        CommonFunctions.ExplicitWait(driver, WAIT_SECONDS, PageObjectModel.SearchBox);
+    }
 
-    try {
-            // Locate and interact with the "I'm Feeling Lucky" button
-       WebElement  FeelingLucky = CommonFunctions.FluentWait(driver,20,PageObjectModel.FeelingLucky);
-        // FeelingLucky.click();
-       
-        System.out.println("Text ="+ FeelingLucky.getAttribute("value"));
-        // FeelingLucky.click(); // Uncomment if needed
+    @When("I search Google for {string}")
+    public void searchGoogle(String query) {
+        WebElement searchBox = CommonFunctions.ExplicitWait(
+                driver,
+                WAIT_SECONDS,
+                PageObjectModel.SearchBox);
+        searchBox.clear();
+        searchBox.sendKeys(query);
+        searchBox.submit();
 
-	// Locate the search box and perform a search
-        WebElement searchbox = CommonFunctions.FluentWait(driver,20,PageObjectModel.SearchBox);
-         
-         searchbox.sendKeys("NIFTY 50 today Value");
-            searchbox.submit();
-           
+        By resultsLocator = By.xpath(PageObjectModel.SearchResults);
+        String normalizedQuery = query.toLowerCase(Locale.ROOT);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_SECONDS));
+        WebElement results = wait.until(browser -> {
+            WebElement candidate = browser.findElement(resultsLocator);
+            String text = candidate.getText().toLowerCase(Locale.ROOT);
+            return text.contains(normalizedQuery) ? candidate : null;
+        });
+        searchResultsText = results.getText();
+    }
 
-	// Locate the Nifty50 value and validate it
-          WebElement  Nifty50= CommonFunctions.FluentWait(driver,20,PageObjectModel.Nifty50);
-            String nifty50Text = Nifty50.getText().replace(",", ""); // Remove commas if any
-            double Amount = Double.parseDouble(nifty50Text);
-    
-            System.out.println("Nifty 50 value ="+ Nifty50.getText());
-            if (Amount>=23000)
-            {
-                System.out.println("Test Passed "+Amount);
-            }
-            else
-            {
-                System.out.println("Test Failed "+Amount);
-            }
-} catch (Exception e) {
-            System.err.println("Error during automation: " + e.getMessage());
-        } finally {
-            // Ensure the browser is closed
+    @Then("the Google results mention {string}")
+    public void verifyGoogleResultsMention(String expectedText) {
+        assertTrue(
+                searchResultsText != null
+                        && searchResultsText.toLowerCase(Locale.ROOT)
+                                .contains(expectedText.toLowerCase(Locale.ROOT)),
+                () -> "Google results did not contain: " + expectedText);
+    }
+
+    @After
+    public void closeBrowser() {
+        if (driver != null) {
             driver.quit();
+            driver = null;
         }
     }
-    
-    //     public static void main(String[] args) {
-    //     // Create an instance of GoogleAutomation to run the constructor
-    //     new GoogleAutomation();
-    // }
-  
-    @Given("I open the Google homepage and read text and check for nifty50")  
-    public void i_open_the_google_homepage_and_read_text_and_check_for_nifty50() {
-        // Create an instance of GoogleAutomation to run the constructor 
-        new GoogleAutomation();
-       
-    }
-    public static void main(String[] args) {
-        // Create an instance of GoogleAutomation to run the constructor
-        new GoogleAutomation();
-    }
-   
 }
